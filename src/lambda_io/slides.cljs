@@ -6,6 +6,15 @@
 
 (def initial-db {:current-slide 0})
 
+(defn slide-0 []
+  [:main
+   [:h1 "clojurescript, re-frame..."
+    [:small {:style {:padding-left 20}} "aliados pra quando o front-end fica complexo"]]
+   [:footer {:style {:position :fixed
+                     :left "3%"
+                     :bottom "10%"}}
+    "rafael lisboa | @rfzero [twitter] | rafaelzlisboa"]])
+
 (defn slide-1 []
   [:main
    [:h1 "clojurescript"]
@@ -58,7 +67,8 @@
     [:li "tem várias ferramentas interessantes pipocando a cada momento (só passamos pela superfície)"]
     [:li "são dados puros transitando, o que ajuda muito a entender o que está acontecendo em cada ponto"]]])
 
-(def slides [[slide-1]
+(def slides [[slide-0]
+             [slide-1]
              [slide-2]
              [slide-3]
              [slide-4]
