@@ -16,7 +16,29 @@
    :updated-at (:updated_at result)
    :language (:language result)})
 
-(defn clojure? [result] (#{"Clojure"} (:language result)))
+(defn clojure? [result]
+  (= "Clojure" (:language result)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ;; subscriptions
 
@@ -29,6 +51,9 @@
 (re-frame/reg-sub :github/clj-results
   :<- [:github/results]
   (fn [results] (filter clojure? results)))
+
+
+
 
 
 

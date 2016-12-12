@@ -23,6 +23,9 @@ book
   ;; author => "Aldous Huxley"
   (str (first title) (first author)))
 
+(str (first (:title book))
+     (first (:author book)))
+
 
 
 
@@ -113,10 +116,12 @@ book
 
 
 ;; atoms
-(def i-can-change (atom 1))
+(def i-can-change* (atom 1))
 
 ;; inc(rease) the value in the atom
-(swap! i-can-change inc)
+(swap! i-can-change* inc)
 
 ;; access its value
-@i-can-change      ; => 2
+@i-can-change*      ; => 2
+i-can-change*
+

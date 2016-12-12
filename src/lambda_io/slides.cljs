@@ -25,11 +25,11 @@
     [:li "assim como o clojure e o java, o clojurescript e o javascript possuem interop muito boa"]]])
 
 (defn timer-component []
-  (let [seconds-elapsed (reagent/atom 0)]
+  (let [seconds-elapsed* (reagent/atom 0)]
     (fn []
-      (js/setTimeout #(swap! seconds-elapsed inc) 1000)
+      (js/setTimeout #(swap! seconds-elapsed* inc) 1000)
       [:span
-       "Seconds Elapsed: " @seconds-elapsed])))
+       "Seconds Elapsed: " @seconds-elapsed*])))
 
 (defn slide-2 []
   [:main
@@ -85,8 +85,8 @@
 (re-frame/reg-sub :slides/current (fn [db] (get-in db [:slides :current-slide])))
 (re-frame/reg-sub :slides/progress
   :<- [:slides/current]
-  (fn [current] (-> (inc current)
-                    (/ (count slides))
+  (fn [current] (-> current
+                    (/ (dec (count slides)))
                     (* 100)
                     int)))
 
